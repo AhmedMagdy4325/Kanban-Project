@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* Makes the dark: variant follow a .dark class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light values (default) */
+:root {
+  --background: #f4f5f6;
+  --surface: #ffffff;
+  --surface-hover: #f9fafb;
+  --border: #e5e7eb;
+  --foreground: #18181b;
+  --foreground-muted: #71717a;
+
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-soft: #eef0ff;
+  --accent-foreground: #ffffff;
+
+  --overlay: rgba(0, 0, 0, 0.4);
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+
+  --priority-high-bg: #fee2e2;
+  --priority-high-text: #b91c1c;
+  --priority-medium-bg: #fef3c7;
+  --priority-medium-text: #b45309;
+  --priority-low-bg: #dcfce7;
+  --priority-low-text: #15803d;
+}
+
+/* Dark values: same names, different colors */
+.dark {
+  --background: #141517;
+  --surface: #1d1e22;
+  --surface-hover: #24252a;
+  --border: #2b2c31;
+  --foreground: #ececee;
+  --foreground-muted: #9a9aa3;
+
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-soft: #26284a;
+  --accent-foreground: #0f1012;
+
+  --overlay: rgba(0, 0, 0, 0.6);
+  --danger: #f87171;
+  --danger-soft: #3a1d1f;
+
+  --priority-high-bg: #3b1e22;
+  --priority-high-text: #fca5a5;
+  --priority-medium-bg: #3a2d14;
+  --priority-medium-text: #fcd34d;
+  --priority-low-bg: #17301f;
+  --priority-low-text: #86efac;
+}
+
+/* Register the names with Tailwind so classes like bg-surface work */
+@theme inline {
+  --font-sans: "Inter", "IBM Plex Sans Arabic", sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", sans-serif;
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-overlay: var(--overlay);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  --color-priority-high-bg: var(--priority-high-bg);
+  --color-priority-high-text: var(--priority-high-text);
+  --color-priority-medium-bg: var(--priority-medium-bg);
+  --color-priority-medium-text: var(--priority-medium-text);
+  --color-priority-low-bg: var(--priority-low-bg);
+  --color-priority-low-text: var(--priority-low-text);
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  html[lang="ar"] body {
+    line-height: 1.7;
+  }
+}

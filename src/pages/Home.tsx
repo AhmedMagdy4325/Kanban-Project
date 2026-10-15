@@ -4,5 +4,5 @@ interface HomeProps {}
 
 export default function Home() {
   const { t } = useTranslation("home");
-  return <div>{t("title")}</div>;
+  return <div></div>;
 }

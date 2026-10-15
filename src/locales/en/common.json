@@ -1,4 +1,5 @@
 {
   "toggleTheme": "Change the theme",
-  "switchLanguage": "Change language"
+  "switchLanguage": "Change language",
+  "priority": { "low": "Low", "medium": "Medium", "high": "High" }
 }

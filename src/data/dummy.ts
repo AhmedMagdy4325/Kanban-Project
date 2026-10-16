@@ -1,11 +1,25 @@
 import type { Card, List, Project } from "../types";
 
-export const project: Project = {
-  id: "p1",
-  name: "Website Launch",
-  description: "Everything needed for the launch",
-  createdAt: "2026-10-01",
-};
+export const projects: Project[] = [
+  {
+    id: "p1",
+    name: "Website Launch",
+    description: "Everything needed for the launch",
+    createdAt: "2026-10-01",
+  },
+  {
+    id: "p2",
+    name: "Mobile App",
+    description: "Some dummy description",
+    createdAt: "2026-10-01",
+  },
+  {
+    id: "p1",
+    name: "IOS Version",
+    description: "Everything needed for the launch",
+    createdAt: "2026-10-01",
+  },
+];
 
 export const lists: List[] = [
   { id: "l1", projectId: "p1", title: "To Do", order: 0 },

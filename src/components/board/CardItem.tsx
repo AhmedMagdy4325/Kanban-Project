@@ -13,8 +13,7 @@ export default function CardItem({ card }: CardItemProps) {
 
   return (
     <div className="bg-surface border border-border rounded-xl p-3 flex flex-col gap-2">
-      <div></div>
-      <h3 className="text-sm font-medium wrap-break-words">{card.title}</h3>
+      <h3 className="text-sm font-medium break-words">{card.title}</h3>
 
       <div className="flex items-center gap-2">
         {card.dueDate && (

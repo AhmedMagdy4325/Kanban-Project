@@ -6,6 +6,7 @@
 
 /* Light values (default) */
 :root {
+  color-scheme: light;
   --background: #f4f5f6;
   --surface: #ffffff;
   --surface-hover: #f9fafb;
@@ -32,6 +33,7 @@
 
 /* Dark values: same names, different colors */
 .dark {
+  color-scheme: dark;
   --background: #141517;
   --surface: #1d1e22;
   --surface-hover: #24252a;
@@ -92,5 +94,9 @@
   }
   html[lang="ar"] body {
     line-height: 1.7;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
 }

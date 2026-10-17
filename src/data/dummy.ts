@@ -14,7 +14,7 @@ export const projects: Project[] = [
     createdAt: "2026-10-01",
   },
   {
-    id: "p1",
+    id: "p3",
     name: "IOS Version",
     description: "Everything needed for the launch",
     createdAt: "2026-10-01",

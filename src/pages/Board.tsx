@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { cards, lists, projects } from "../data/dummy";
 import { useTranslation } from "react-i18next";
 import ListColumn from "../components/board/ListColumn";
-import ThemeToggle from "../components/ThemeToggle";
 
 export default function Board() {
   const { id } = useParams();
@@ -16,14 +15,15 @@ export default function Board() {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <div className="p-6">
-      <ThemeToggle />
-      <h1 className="text-xl font-semibold mb-2" dir="auto">
-        {project.name}
-      </h1>
-      <p className="text-sm mb-6" dir="auto">
-        {project.description}
-      </p>
+    <div className="flex flex-col gap-5 p-6">
+      <div>
+        <h1 className="text-xl font-semibold" dir="auto">
+          {project.name}
+        </h1>
+        <p className="mt-1 text-sm text-foreground-muted" dir="auto">
+          {project.description}
+        </p>
+      </div>
       <div className="flex gap-4 overflow-x-auto items-start">
         {projectLists.map((list) => {
           const listCards = cards

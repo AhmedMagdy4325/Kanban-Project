@@ -1,5 +1,7 @@
 {
   "toggleTheme": "Change the theme",
   "switchLanguage": "Change language",
-  "priority": { "low": "Low", "medium": "Medium", "high": "High" }
+  "priority": { "low": "Low", "medium": "Medium", "high": "High" },
+  "openMenu": "Menu",
+  "projects": "Projects"
 }

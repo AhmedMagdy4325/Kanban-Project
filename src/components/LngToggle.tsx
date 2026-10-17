@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import Button from "./ui/Button";
 
 export default function LngToggle() {
   const { i18n } = useTranslation();
@@ -9,9 +10,9 @@ export default function LngToggle() {
 
   return (
     <>
-      <button onClick={toggleLanguage} aria-label="">
+      <Button variant="ghost" onClick={toggleLanguage} aria-label="">
         {isEnglish ? "Ar" : "En"}
-      </button>
+      </Button>
     </>
   );
 }

@@ -2,13 +2,31 @@ import { useParams } from "react-router-dom";
 import { cards, lists, projects } from "../data/dummy";
 import { useTranslation } from "react-i18next";
 import ListColumn from "../components/board/ListColumn";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export default function Board() {
   const { id } = useParams();
   const { t } = useTranslation("board");
   const project = projects.find((p) => p.id === id);
   if (!project)
-    return <p className="text-foreground-muted p-5">{t("projectNotFound")}</p>;
+    return (
+      <div className="flex flex-col justify-center items-center min-h-[60vh] gap-2 text-center">
+        <h2 className="text-7xl md:text-9xl text-foreground-muted" aria-hidden>
+          *o*
+        </h2>
+
+        <p className="text-foreground-muted p-5">{t("projectNotFound")}</p>
+
+        <Link
+          className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
+          to="/"
+        >
+          {t("backToHome")}
+          <ArrowRight size={16} className="rtl:rotate-180" />
+        </Link>
+      </div>
+    );
 
   const projectLists = lists
     .filter((l) => l.projectId === id)

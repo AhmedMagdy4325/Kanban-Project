@@ -1,5 +1,7 @@
 {
   "addCard": "Add card",
   "projectNotFound": "Project is not found",
-  "backToHome": "Back to home"
+  "backToHome": "Back to home",
+  "markComplete": "Mark as complete",
+  "markIncomplete": "Mark as incomplete"
 }

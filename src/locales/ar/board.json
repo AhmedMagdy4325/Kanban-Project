@@ -1,5 +1,7 @@
 {
   "addCard": "إضافة بطاقة",
   "projectNotFound": "المشروع غير موجود",
-  "backToHome": "العودة إلى الرئيسية"
+  "backToHome": "العودة إلى الرئيسية",
+  "markComplete": "تحديد كمكتملة",
+  "markIncomplete": "تحديد كغير مكتملة"
 }

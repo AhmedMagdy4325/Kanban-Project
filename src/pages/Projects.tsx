@@ -1,5 +1,3 @@
-interface ProjectsProps {}
-
-export default function Projects({}: ProjectsProps) {
-  return <div></div>;
+export default function Projects() {
+  return <div>Projects</div>;
 }

@@ -1,5 +1,3 @@
-interface NotFoundProps {}
-
-export default function NotFound({}: NotFoundProps) {
-  return <div></div>;
+export default function NotFound() {
+  return <div>Not found</div>;
 }

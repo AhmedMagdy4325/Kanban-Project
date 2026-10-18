@@ -1,14 +1,29 @@
 import { useParams } from "react-router-dom";
-import { cards, lists, projects } from "../data/dummy";
+
 import { useTranslation } from "react-i18next";
 import ListColumn from "../components/board/ListColumn";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useAppSelector } from "../store/hooks";
+import { useMemo } from "react";
+import type { Card } from "../types";
 
 export default function Board() {
   const { id } = useParams();
   const { t } = useTranslation("board");
+  const projects = useAppSelector((s) => s.projects);
+  const lists = useAppSelector((s) => s.lists);
+  const cards = useAppSelector((s) => s.cards);
+
+  const cardsByList = useMemo(() => {
+    const groups: Record<string, Card[]> = {};
+    for (const c of [...cards].sort((a, b) => a.order - b.order)) {
+      (groups[c.listId] ??= []).push(c);
+    }
+    return groups;
+  }, [cards]);
   const project = projects.find((p) => p.id === id);
+
   if (!project)
     return (
       <div className="flex flex-col justify-center items-center min-h-[60vh] gap-2 text-center">
@@ -43,12 +58,13 @@ export default function Board() {
         </p>
       </div>
       <div className="flex gap-4 overflow-x-auto items-start">
-        {projectLists.map((list) => {
-          const listCards = cards
-            .filter((c) => c.listId === list.id)
-            .sort((a, b) => a.order - b.order);
-          return <ListColumn key={list.id} list={list} cards={listCards} />;
-        })}
+        {projectLists.map((list) => (
+          <ListColumn
+            key={list.id}
+            list={list}
+            cards={cardsByList[list.id] ?? []}
+          />
+        ))}
       </div>
     </div>
   );

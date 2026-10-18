@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
-type Size = "sm" | "md" | "icon";
+type Size = "sm" | "md" | "xs" | "icon";
 
 type ButtonProps = ComponentProps<"button"> & {
   variant?: Variant;
@@ -25,6 +25,7 @@ const sizes: Record<Size, string> = {
   sm: "px-3 py-1.5 text-sm",
   md: "px-4 py-2 text-sm",
   icon: "p-2",
+  xs: "p-1",
 };
 
 export default function Button({

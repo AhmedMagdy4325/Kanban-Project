@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { projects } from "../../data/dummy";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../../store/hooks";
 
 type SidebarProps = {
   open: boolean;
@@ -8,6 +8,7 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
+  const projects = useAppSelector((s) => s.projects);
   const { t } = useTranslation();
   return (
     <>

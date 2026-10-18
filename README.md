@@ -1,4 +1,4 @@
-# Kanban Project
+# Kardify
 
 A Trello-style kanban board built with React, TypeScript, and Tailwind CSS.
 

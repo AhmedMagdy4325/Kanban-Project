@@ -1,1 +1,5 @@
-{}
+{
+  "title": "Page not found",
+  "message": "The page you are looking for doesn't exist or was moved.",
+  "backHome": "Back to home"
+}

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import type { Card as CardType, List as ListType } from "../../types";
-import Button from "../ui/Button";
+import Button from "../ui/AppButton";
 import CardItem from "./CardItem";
 import { Plus } from "lucide-react";
 

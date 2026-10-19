@@ -1,5 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
 
 /* Makes the dark: variant follow a .dark class on <html> */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -7,18 +10,18 @@
 /* Light values (default) */
 :root {
   color-scheme: light;
+
+  /* your tokens */
   --background: #f4f5f6;
-  --surface: #ffffff;
-  --surface-hover: #f9fafb;
   --border: #e5e7eb;
   --foreground: #18181b;
-  --foreground-muted: #71717a;
-
   --accent: #6366f1;
+  --accent-foreground: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f9fafb;
+  --foreground-muted: #71717a;
   --accent-hover: #4f46e5;
   --accent-soft: #eef0ff;
-  --accent-foreground: #ffffff;
-
   --overlay: rgba(0, 0, 0, 0.4);
   --danger: #dc2626;
   --danger-soft: #fee2e2;
@@ -29,23 +32,38 @@
   --priority-medium-text: #b45309;
   --priority-low-bg: #dcfce7;
   --priority-low-text: #15803d;
+
+  /* shadcn names, pointing at your tokens (defined once, work in dark too) */
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --primary: var(--accent);
+  --primary-foreground: var(--accent-foreground);
+  --secondary: var(--surface-hover);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--surface-hover);
+  --muted-foreground: var(--foreground-muted);
+  --destructive: var(--danger);
+  --input: var(--border);
+  --ring: var(--accent);
+  --radius: 0.625rem;
 }
 
 /* Dark values: same names, different colors */
 .dark {
   color-scheme: dark;
+
   --background: #141517;
-  --surface: #1d1e22;
-  --surface-hover: #24252a;
   --border: #2b2c31;
   --foreground: #ececee;
-  --foreground-muted: #9a9aa3;
-
   --accent: #818cf8;
+  --accent-foreground: #0f1012;
+  --surface: #1d1e22;
+  --surface-hover: #24252a;
+  --foreground-muted: #9a9aa3;
   --accent-hover: #a5b4fc;
   --accent-soft: #26284a;
-  --accent-foreground: #0f1012;
-
   --overlay: rgba(0, 0, 0, 0.6);
   --danger: #f87171;
   --danger-soft: #3a1d1f;
@@ -60,8 +78,8 @@
 
 /* Register the names with Tailwind so classes like bg-surface work */
 @theme inline {
-  --font-sans: "Inter", "IBM Plex Sans Arabic", sans-serif;
-  --font-arabic: "IBM Plex Sans Arabic", sans-serif;
+  --font-sans: "Inter Variable", "IBM Plex Sans Arabic", sans-serif;
+  --font-heading: var(--font-sans);
 
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -85,12 +103,40 @@
   --color-priority-medium-text: var(--priority-medium-text);
   --color-priority-low-bg: var(--priority-low-bg);
   --color-priority-low-text: var(--priority-low-text);
+
+  /* used by shadcn components */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 @layer base {
+  html {
+    @apply font-sans;
+  }
+  html[lang="ar"] {
+    font-size: 106.25%; /* Arabic glyphs look smaller; remove if you don't want it */
+  }
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    @apply bg-background text-foreground;
   }
   html[lang="ar"] body {
     line-height: 1.7;
@@ -98,5 +144,6 @@
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
+    @apply border-border outline-ring/50;
   }
 }

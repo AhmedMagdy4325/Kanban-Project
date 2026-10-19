@@ -2,7 +2,7 @@ import type { Card as CardType } from "../../types";
 import { useTranslation } from "react-i18next";
 import { formatDueDate } from "../../utils/formatDate";
 import PriorityBadge from "./PriorityBadge";
-import Button from "../ui/Button";
+import Button from "../ui/AppButton";
 import { Circle, CircleCheck } from "lucide-react";
 import { toggleComplete } from "../../store/cardsSlice";
 import { useAppDispatch } from "../../store/hooks";

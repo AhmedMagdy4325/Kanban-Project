@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react";
-import Button from "../ui/Button";
+import Button from "../ui/AppButton";
 import ThemeToggle from "../ThemeToggle";
 import LngToggle from "../LngToggle";
 import { Link } from "react-router-dom";

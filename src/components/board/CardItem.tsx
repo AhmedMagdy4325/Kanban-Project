@@ -2,7 +2,7 @@ import type { Card as CardType } from "../../types";
 import { useTranslation } from "react-i18next";
 import { formatDueDate } from "../../utils/formatDate";
 import PriorityBadge from "./PriorityBadge";
-import Button from "../ui/AppButton";
+import AppButton from "../ui/AppButton";
 import { Circle, CircleCheck } from "lucide-react";
 import { toggleComplete } from "../../store/cardsSlice";
 import { useAppDispatch } from "../../store/hooks";
@@ -19,7 +19,7 @@ export default function CardItem({ card }: CardItemProps) {
   return (
     <div className="bg-surface border border-border rounded-xl p-3 flex flex-col gap-2">
       <div className="flex gap-2 items-center" dir="auto">
-        <Button
+        <AppButton
           variant="ghost"
           size="xs"
           onClick={() => dispatch(toggleComplete(card.id))}
@@ -33,7 +33,7 @@ export default function CardItem({ card }: CardItemProps) {
           ) : (
             <Circle size={20} aria-hidden />
           )}
-        </Button>
+        </AppButton>
         <h3
           className={[
             "text-sm font-medium break-words",

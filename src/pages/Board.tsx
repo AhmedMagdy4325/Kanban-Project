@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { useAppSelector } from "../store/hooks";
 import { useMemo } from "react";
 import type { Card } from "../types";
+import AddListDialog from "@/components/board/AddListDialog";
 
 export default function Board() {
   const { id } = useParams();
@@ -65,6 +66,7 @@ export default function Board() {
             cards={cardsByList[list.id] ?? []}
           />
         ))}
+        <AddListDialog projectId={project.id} />
       </div>
     </div>
   );

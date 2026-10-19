@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import type { Card as CardType, List as ListType } from "../../types";
-import Button from "../ui/AppButton";
+import AppButton from "../ui/AppButton";
 import CardItem from "./CardItem";
 import { Plus } from "lucide-react";
 
@@ -26,11 +26,11 @@ export default function ListColumn({ cards, list }: ListColumnProps) {
           </li>
         ))}
       </ul>
-      <Button variant="ghost" size="md" className="w-full justify-start">
+      <AppButton variant="ghost" size="md" className="w-full justify-start">
         <strong>
           <Plus size={16} /> {t("addCard")}
         </strong>
-      </Button>
+      </AppButton>
     </div>
   );
 }

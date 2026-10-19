@@ -3,5 +3,10 @@
   "projectNotFound": "Project is not found",
   "backToHome": "Back to home",
   "markComplete": "Mark as complete",
-  "markIncomplete": "Mark as incomplete"
+  "markIncomplete": "Mark as incomplete",
+  "addList": "Add list",
+  "addListDescription": "Give your new list a name.",
+  "listTitle": "List name",
+  "listTitlePlaceholder": "e.g. Backlog",
+  "titleRequired": "Please enter a name"
 }

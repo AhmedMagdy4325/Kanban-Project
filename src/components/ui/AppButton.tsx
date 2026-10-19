@@ -28,7 +28,7 @@ const sizes: Record<Size, string> = {
   xs: "p-1",
 };
 
-export default function Button({
+export default function AppButton({
   variant = "primary",
   size = "md",
   className,

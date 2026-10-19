@@ -3,5 +3,10 @@
   "projectNotFound": "المشروع غير موجود",
   "backToHome": "العودة إلى الرئيسية",
   "markComplete": "تحديد كمكتملة",
-  "markIncomplete": "تحديد كغير مكتملة"
+  "markIncomplete": "تحديد كغير مكتملة",
+  "addList": "إضافة قائمة",
+  "addListDescription": "اختر اسمًا للقائمة الجديدة.",
+  "listTitle": "اسم القائمة",
+  "listTitlePlaceholder": "مثال: قيد الانتظار",
+  "titleRequired": "الرجاء إدخال اسم"
 }

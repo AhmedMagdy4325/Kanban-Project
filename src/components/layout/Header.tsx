@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react";
-import Button from "../ui/AppButton";
+import AppButton from "../ui/AppButton";
 import ThemeToggle from "../ThemeToggle";
 import LngToggle from "../LngToggle";
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
       <div className="flex items-center gap-1">
         <ThemeToggle />
         <LngToggle />
-        <Button
+        <AppButton
           variant="ghost"
           size="icon"
           className="md:hidden"
@@ -31,7 +31,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
           aria-label={t("openMenu")}
         >
           <Menu size={20} />
-        </Button>
+        </AppButton>
       </div>
     </header>
   );

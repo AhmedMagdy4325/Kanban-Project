@@ -50,7 +50,7 @@ export default function Board() {
 
   return (
     <div className="flex flex-col gap-5 p-6">
-      <div>
+      <div className="mb-1">
         <h1 className="text-xl font-semibold" dir="auto">
           {project.name}
         </h1>

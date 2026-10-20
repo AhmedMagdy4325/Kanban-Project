@@ -4,5 +4,6 @@
   "priority": { "low": "Low", "medium": "Medium", "high": "High" },
   "openMenu": "Menu",
   "projects": "Projects",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "save": "Save"
 }

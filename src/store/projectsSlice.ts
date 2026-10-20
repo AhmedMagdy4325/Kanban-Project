@@ -14,9 +14,15 @@ const projectsSlice = createSlice({
     addProject(state, action: PayloadAction<Project>) {
       state.push(action.payload);
     },
-    renameProject(state, action: PayloadAction<{ id: string; name: string }>) {
+    updateProject(
+      state,
+      action: PayloadAction<{ id: string; name: string; description: string }>,
+    ) {
       const project = state.find((p) => p.id === action.payload.id);
-      if (project) project.name = action.payload.name;
+      if (project) {
+        project.name = action.payload.name;
+        project.description = action.payload.description;
+      }
     },
     deleteProject(state, action: PayloadAction<string>) {
       return state.filter((p) => p.id !== action.payload);
@@ -24,7 +30,7 @@ const projectsSlice = createSlice({
   },
 });
 
-export const { addProject, renameProject, deleteProject } =
+export const { addProject, updateProject, deleteProject } =
   projectsSlice.actions;
 
 export default projectsSlice.reducer;

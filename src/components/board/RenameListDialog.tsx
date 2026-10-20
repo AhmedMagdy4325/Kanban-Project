@@ -6,7 +6,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
 import { useState } from "react";
@@ -30,7 +29,6 @@ export default function RenameListDialog({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{t("renameList")}</DialogTitle>
-          <DialogDescription>{t("renameListDescription")}</DialogDescription>
         </DialogHeader>
         <RenameListForm list={list} onDone={() => onOpenChange(false)} />
       </DialogContent>

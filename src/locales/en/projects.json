@@ -1,1 +1,9 @@
-{}
+{
+  "title": "Projects",
+  "emptyTitle": "No projects yet",
+  "emptyHint": "Create your first project to start organizing your work.",
+  "listsCount_one": "{{count}} list",
+  "listsCount_other": "{{count}} lists",
+  "create": "Create",
+  "createProject": "New Project"
+}

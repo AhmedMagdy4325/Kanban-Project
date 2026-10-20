@@ -35,28 +35,15 @@ export default function DeleteListDialog({
         <AlertDialogHeader>
           <AlertDialogTitle>{t("deleteListTitle")}</AlertDialogTitle>
           <AlertDialogDescription>
-            {cardCount === 0 && t("deleteListEmpty", { title: list.title })}
-            {cardCount === 1 &&
-              t("deleteListMessage_one", {
-                title: list.title,
-                count: cardCount,
-              })}
-            {cardCount === 2 &&
-              t("deleteListMessage_two", {
-                title: list.title,
-                count: cardCount,
-              })}
-            {cardCount > 2 &&
-              t("deleteListMessage_other", {
-                title: list.title,
-                count: cardCount,
-              })}
+            {cardCount === 0
+              ? t("deleteListEmpty", { title: list.title })
+              : t("deleteListMessage", { title: list.title, count: cardCount })}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>{t("common:cancel")}</AlertDialogCancel>
           <AlertDialogAction
-            className="bg-danger text-accent-foreground hover:opacity-90"
+            className="bg-danger/90! text-accent-foreground hover:opacity-80"
             onClick={() => dispatch(deleteList(list.id))}
           >
             {t("board:delete")}

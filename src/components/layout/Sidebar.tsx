@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
-
+import CreateProjectDialog from "../projects/CreateProjectDialog";
+import AppButton from "../ui/AppButton";
+import { Plus } from "lucide-react";
 type SidebarProps = {
   open: boolean;
   onClose: () => void;
@@ -9,7 +11,7 @@ type SidebarProps = {
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
   const projects = useAppSelector((s) => s.projects);
-  const { t } = useTranslation();
+  const { t } = useTranslation("projects");
   return (
     <>
       {open && (
@@ -51,6 +53,29 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               </NavLink>
             </li>
           ))}
+
+          <CreateProjectDialog
+            trigger={
+              <AppButton
+                variant="ghost"
+                size="icon"
+                aria-label={t("projects:createProject")}
+                className="flex items-center justify-between"
+                dir="auto"
+              >
+                <span
+                  className="px-2
+                    text-xs
+                    font-semibold
+                    uppercase
+                    text-foreground-muted"
+                >
+                  {t("projects:createProject")}
+                </span>
+                <Plus size={16} aria-hidden />
+              </AppButton>
+            }
+          />
         </ul>
       </aside>
     </>

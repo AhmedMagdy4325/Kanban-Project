@@ -10,6 +10,7 @@
   "listTitlePlaceholder": "e.g. Backlog",
   "titleRequired": "Please enter a name",
   "moreOptions": "More options",
+  "renameList": "Rename list",
   "rename": "Rename",
   "delete": "Delete",
   "deleteListTitle": "Delete this list?",

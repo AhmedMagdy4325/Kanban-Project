@@ -1,1 +1,13 @@
-{}
+{
+  "title": "المشاريع",
+  "emptyTitle": "لا توجد مشاريع بعد",
+  "emptyHint": "أنشئ مشروعك الأول لتبدأ بتنظيم عملك.",
+  "listsCount_zero": "لا توجد قوائم",
+  "listsCount_one": "قائمة واحدة",
+  "listsCount_two": "قائمتان",
+  "listsCount_few": "{{count}} قوائم",
+  "listsCount_many": "{{count}} قائمة",
+  "listsCount_other": "{{count}} قائمة",
+  "create": "إنشاء",
+  "createProject": "مشروع جديد"
+}

@@ -8,5 +8,12 @@
   "addListDescription": "Give your new list a name.",
   "listTitle": "List name",
   "listTitlePlaceholder": "e.g. Backlog",
-  "titleRequired": "Please enter a name"
+  "titleRequired": "Please enter a name",
+  "moreOptions": "More options",
+  "rename": "Rename",
+  "delete": "Delete",
+  "deleteListTitle": "Delete this list?",
+  "deleteListEmpty": "“{{title}}” will be deleted. This can't be undone.",
+  "deleteListMessage_one": "“{{title}}” and its {{count}} card will be deleted. This can't be undone.",
+  "deleteListMessage_other": "“{{title}}” and its {{count}} cards will be deleted. This can't be undone."
 }

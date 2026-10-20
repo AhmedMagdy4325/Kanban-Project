@@ -3,5 +3,6 @@
   "switchLanguage": "تغيير اللغة",
   "priority": { "low": "منخفضة", "medium": "متوسطة", "high": "عالية" },
   "openMenu": "فتح القائمة",
-  "projects": "المشاريع"
+  "projects": "المشاريع",
+  "cancel": "إلغاء"
 }

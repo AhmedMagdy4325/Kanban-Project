@@ -3,5 +3,6 @@
   "switchLanguage": "Change language",
   "priority": { "low": "Low", "medium": "Medium", "high": "High" },
   "openMenu": "Menu",
-  "projects": "Projects"
+  "projects": "Projects",
+  "cancel": "Cancel"
 }

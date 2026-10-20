@@ -8,5 +8,13 @@
   "addListDescription": "اختر اسمًا للقائمة الجديدة.",
   "listTitle": "اسم القائمة",
   "listTitlePlaceholder": "مثال: قيد الانتظار",
-  "titleRequired": "الرجاء إدخال اسم"
+  "titleRequired": "الرجاء إدخال اسم",
+  "moreOptions": "خيارات أخرى",
+  "rename": "إعادة تسمية",
+  "delete": "إزالة",
+  "deleteListTitle": "حذف هذه القائمة؟",
+  "deleteListEmpty": "سيتم حذف «{{title}}». لا يمكن التراجع عن هذا.",
+  "deleteListMessage_one": "سيتم حذف «{{title}}» وبطاقتها الواحدة. لا يمكن التراجع عن هذا.",
+  "deleteListMessage_two": "سيتم حذف «{{title}}» وبطاقتيها. لا يمكن التراجع عن هذا.",
+  "deleteListMessage_other": "سيتم حذف «{{title}}» وبطاقاتها الـ {{count}}. لا يمكن التراجع عن هذا."
 }

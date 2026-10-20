@@ -36,7 +36,7 @@ export default function CardItem({ card }: CardItemProps) {
         </AppButton>
         <h3
           className={[
-            "text-sm font-medium break-words",
+            "text-sm font-medium wrap-break-word",
             card.completed ? "line-through text-foreground-muted" : "",
           ].join(" ")}
           dir="auto"

@@ -22,7 +22,6 @@ export default function Projects() {
     <div className="p-4 md:p-6">
       <div className="mb-6 flex items-center justify-between gap-4">
         <h1 className="text-xl font-semibold">{t("title")}</h1>
-        {/* create button goes here after the dialog exists */}
       </div>
 
       {projects.length === 0 ? (

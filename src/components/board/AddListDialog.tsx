@@ -1,5 +1,3 @@
-// Note: after building the component don't forget to add translations to board file
-
 import {
   Dialog,
   DialogTrigger,
@@ -11,16 +9,20 @@ import {
 } from "@/components/ui/dialog";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "@/store/hooks";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import AppButton from "../ui/AppButton";
 import { Plus } from "lucide-react";
 import { addList } from "@/store/listsSlice";
 
 interface AddListDialogProps {
   projectId: string;
+  trigger?: ReactNode;
 }
 
-export default function AddListDialog({ projectId }: AddListDialogProps) {
+export default function AddListDialog({
+  projectId,
+  trigger,
+}: AddListDialogProps) {
   const { t } = useTranslation("board");
   const dispatch = useAppDispatch();
   const [error, setError] = useState<string>("");
@@ -50,10 +52,15 @@ export default function AddListDialog({ projectId }: AddListDialogProps) {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <AppButton variant="ghost" className="w-72 shrink-0">
-          <Plus size={20} />
-          <span>{t("addList")}</span>
-        </AppButton>
+        {trigger ?? (
+          <AppButton
+            variant="ghost"
+            className="w-72 shrink-0 justify-start border border-dashed border-border"
+          >
+            <Plus />
+            <span>{t("addList")}</span>
+          </AppButton>
+        )}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -79,15 +86,15 @@ export default function AddListDialog({ projectId }: AddListDialogProps) {
             )}
           </div>
           <DialogFooter>
-            <AppButton variant="primary" type="submit">
-              {t("create")}
-            </AppButton>
             <AppButton
               variant="ghost"
               type="button"
               onClick={() => handleOpenChange(false)}
             >
-              {t("cancel")}
+              {t("common:cancel")}
+            </AppButton>
+            <AppButton variant="primary" type="submit">
+              {t("common:create")}
             </AppButton>
           </DialogFooter>
         </form>

@@ -21,5 +21,9 @@
   "deleteProjectMessage_two": "سيتم حذف «{{title}}» وقائمتيه مع جميع بطاقاتها. لا يمكن التراجع عن هذا.",
   "deleteProjectMessage_other": "سيتم حذف «{{title}}» وقوائمه الـ {{count}} مع جميع بطاقاتها. لا يمكن التراجع عن هذا.",
   "name": "الإسم",
-  "description": "الوصف"
+  "description": "الوصف",
+  "createDescription": "اختر اسمًا لمشروعك ووصفًا اختياريًا.",
+  "namePlaceholder": "مثال: إطلاق الموقع",
+  "descriptionPlaceholder": "ما هو موضوع هذا المشروع؟ (اختياري)",
+  "nameRequired": "الرجاء إدخال اسم المشروع"
 }

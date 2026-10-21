@@ -17,5 +17,10 @@
   "deleteListEmpty": "سيتم حذف «{{title}}». لا يمكن التراجع عن هذا.",
   "deleteListMessage_one": "سيتم حذف «{{title}}» وبطاقتها الواحدة. لا يمكن التراجع عن هذا.",
   "deleteListMessage_two": "سيتم حذف «{{title}}» وبطاقتيها. لا يمكن التراجع عن هذا.",
-  "deleteListMessage_other": "سيتم حذف «{{title}}» وبطاقاتها الـ {{count}}. لا يمكن التراجع عن هذا."
+  "deleteListMessage_other": "سيتم حذف «{{title}}» وبطاقاتها الـ {{count}}. لا يمكن التراجع عن هذا.",
+  "backToProjects": "العودة إلى المشاريع",
+  "noListsTitle": "لا توجد قوائم بعد",
+  "noListsHint": "أنشئ قائمتك الأولى لتبدأ بإضافة البطاقات.",
+  "createList": "إنشاء قائمة",
+  "noCards": "لا توجد بطاقات بعد"
 }

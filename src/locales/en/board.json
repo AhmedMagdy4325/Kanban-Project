@@ -16,5 +16,10 @@
   "deleteListTitle": "Delete this list?",
   "deleteListEmpty": "“{{title}}” will be deleted. This can't be undone.",
   "deleteListMessage_one": "“{{title}}” and its {{count}} card will be deleted. This can't be undone.",
-  "deleteListMessage_other": "“{{title}}” and its {{count}} cards will be deleted. This can't be undone."
+  "deleteListMessage_other": "“{{title}}” and its {{count}} cards will be deleted. This can't be undone.",
+  "backToProjects": "Back to projects",
+  "noListsTitle": "No lists yet",
+  "noListsHint": "Create your first list to start adding cards.",
+  "createList": "Create a list",
+  "noCards": "No cards yet"
 }

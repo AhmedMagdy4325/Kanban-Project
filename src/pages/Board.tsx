@@ -2,13 +2,14 @@ import { useParams } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import ListColumn from "../components/board/ListColumn";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+
 import { useAppSelector } from "../store/hooks";
 import { useMemo } from "react";
 import type { Card } from "../types";
 import AddListDialog from "@/components/board/AddListDialog";
-
+import NotFoundState from "@/components/NotFoundState";
+import AppButton from "@/components/ui/AppButton";
+import { Plus } from "lucide-react";
 export default function Board() {
   const { id } = useParams();
   const { t } = useTranslation("board");
@@ -27,21 +28,12 @@ export default function Board() {
 
   if (!project)
     return (
-      <div className="flex flex-col justify-center items-center min-h-[60vh] gap-2 text-center">
-        <h2 className="text-7xl md:text-9xl text-foreground-muted" aria-hidden>
-          *o*
-        </h2>
-
-        <p className="text-foreground-muted p-5">{t("projectNotFound")}</p>
-
-        <Link
-          className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
-          to="/"
-        >
-          {t("backToHome")}
-          <ArrowRight size={16} className="rtl:rotate-180" />
-        </Link>
-      </div>
+      <NotFoundState
+        code="*o*"
+        title={t("projectNotFound")}
+        linkTo="/projects"
+        linkLabel={t("backToProjects")}
+      />
     );
 
   const projectLists = lists
@@ -49,25 +41,46 @@ export default function Board() {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <div className="flex flex-col gap-5 p-6">
+    <div className="flex flex-col gap-5 p-4 md:p-6">
       <div className="mb-1">
         <h1 className="text-xl font-semibold" dir="auto">
           {project.name}
         </h1>
-        <p className="mt-1 text-sm text-foreground-muted" dir="auto">
-          {project.description}
-        </p>
+        {project.description && (
+          <p className="mt-1 text-sm text-foreground-muted" dir="auto">
+            {project.description}
+          </p>
+        )}
       </div>
-      <div className="flex gap-4 overflow-x-auto items-start">
-        {projectLists.map((list) => (
-          <ListColumn
-            key={list.id}
-            list={list}
-            cards={cardsByList[list.id] ?? []}
+
+      {projectLists.length === 0 ? (
+        <div className="flex min-h-[40vh] flex-col items-center justify-center gap-3 text-center">
+          <p className="text-lg font-semibold">{t("noListsTitle")}</p>
+          <p className="max-w-sm text-sm text-foreground-muted">
+            {t("noListsHint")}
+          </p>
+          <AddListDialog
+            projectId={project.id}
+            trigger={
+              <AppButton variant="primary">
+                <Plus size={16} aria-hidden />
+                {t("createList")}
+              </AppButton>
+            }
           />
-        ))}
-        <AddListDialog projectId={project.id} />
-      </div>
+        </div>
+      ) : (
+        <div className="flex items-start gap-4 overflow-x-auto pb-2">
+          {projectLists.map((list) => (
+            <ListColumn
+              key={list.id}
+              list={list}
+              cards={cardsByList[list.id] ?? []}
+            />
+          ))}
+          <AddListDialog projectId={project.id} />
+        </div>
+      )}
     </div>
   );
 }

@@ -40,36 +40,32 @@ export default function ListColumn({ cards, list }: ListColumnProps) {
           </span>
         </div>
         <div>
-          <Button size="icon" variant="ghost" aria-label={t("moreOptions")}>
-            <DropdownMenu dir={dir}>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  aria-label={t("moreOptions")}
-                >
-                  <MoreHorizontal aria-hidden />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem
-                  onSelect={() => setRenameOpen(true)}
-                  className="hover:"
-                >
-                  {t("rename")}
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  className="text-danger focus:text-danger hover:"
-                  onSelect={() => setDeleteOpen(true)}
-                >
-                  {t("delete")}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </Button>
+          <DropdownMenu dir={dir}>
+            <DropdownMenuTrigger asChild>
+              <Button size="icon" variant="ghost" aria-label={t("moreOptions")}>
+                <MoreHorizontal aria-hidden />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onSelect={() => setRenameOpen(true)}>
+                {t("rename")}
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="text-danger focus:text-danger"
+                onSelect={() => setDeleteOpen(true)}
+              >
+                {t("delete")}
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
       <ul className="flex flex-col gap-2 overflow-y-auto overflow-x-hidden min-h-16 max-h-[70vh]">
+        {cards.length === 0 && (
+          <li className="rounded-xl border border-dashed border-border p-4 text-center text-xs text-foreground-muted">
+            {t("noCards")}
+          </li>
+        )}
         {cards.map((card) => (
           <li key={card.id}>
             <CardItem card={card} />

@@ -11,7 +11,12 @@ type SidebarProps = {
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
   const projects = useAppSelector((s) => s.projects);
-  const { t } = useTranslation("projects");
+  const { t, i18n } = useTranslation();
+  const hidden =
+    i18n.dir() === "rtl"
+      ? "max-md:translate-x-full max-md:invisible"
+      : "max-md:-translate-x-full max-md:invisible";
+
   return (
     <>
       {open && (
@@ -23,9 +28,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       <aside
         className={[
           "fixed top-14 bottom-0 start-0 z-40 w-64 flex flex-col gap-2 border-e border-border bg-surface p-3 transition-transform md:static md:translate-x-0 ",
-          open
-            ? "translate-x-0"
-            : "max-md:-translate-x-full max-md:rtl:translate-x-full",
+          open ? "translate-x-0" : hidden,
         ].join(" ")}
         dir="auto"
       >

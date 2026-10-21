@@ -16,5 +16,9 @@
   "deleteProjectMessage_one": "“{{title}}” and its {{count}} list, with all their cards, will be deleted. This can't be undone.",
   "deleteProjectMessage_other": "“{{title}}” and its {{count}} lists, with all their cards, will be deleted. This can't be undone.",
   "name": "Name",
-  "description": "Description"
+  "description": "Description",
+  "namePlaceholder": "e.g. Website launch",
+  "descriptionPlaceholder": "What is this project about? (optional)",
+  "nameRequired": "Please enter a project name",
+  "createDescription": "Give your project a name and an optional description."
 }

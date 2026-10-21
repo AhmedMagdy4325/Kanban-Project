@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
-export default function Layout() {
+export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col">

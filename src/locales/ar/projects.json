@@ -19,5 +19,7 @@
   "deleteProjectEmpty": "سيتم حذف «{{title}}». لا يمكن التراجع عن هذا.",
   "deleteProjectMessage_one": "سيتم حذف «{{title}}» وقائمته الواحدة مع جميع بطاقاتها. لا يمكن التراجع عن هذا.",
   "deleteProjectMessage_two": "سيتم حذف «{{title}}» وقائمتيه مع جميع بطاقاتها. لا يمكن التراجع عن هذا.",
-  "deleteProjectMessage_other": "سيتم حذف «{{title}}» وقوائمه الـ {{count}} مع جميع بطاقاتها. لا يمكن التراجع عن هذا."
+  "deleteProjectMessage_other": "سيتم حذف «{{title}}» وقوائمه الـ {{count}} مع جميع بطاقاتها. لا يمكن التراجع عن هذا.",
+  "name": "الإسم",
+  "description": "الوصف"
 }

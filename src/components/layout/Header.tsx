@@ -5,7 +5,7 @@ import LngToggle from "../LngToggle";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-type HeaderProps = { onMenuClick: () => void };
+type HeaderProps = { onMenuClick?: () => void };
 
 export default function Header({ onMenuClick }: HeaderProps) {
   const { t } = useTranslation();

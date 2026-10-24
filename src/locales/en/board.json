@@ -21,5 +21,21 @@
   "noListsTitle": "No lists yet",
   "noListsHint": "Create your first list to start adding cards.",
   "createList": "Create a list",
-  "noCards": "No cards yet"
+  "noCards": "No cards yet",
+  "cardTitle": "Title",
+  "cardTitlePlaceholder": "e.g. Design the landing page",
+  "cardDescription": "Description",
+  "priority": "Priority",
+  "dueDate": "Due date",
+  "dueDatePast": "Due date can't be in the past",
+  "addCardDescription": "Fill in the details for the new card",
+  "edit": "Edit",
+  "cardDetails": "Card details",
+  "status": "Status",
+  "statusCompleted": "Completed",
+  "statusOpen": "Open",
+  "noDueDate": "No due date",
+  "noDescription": "No description",
+  "deleteCardTitle": "Delete this card?",
+  "deleteCardMessage": "“{{title}}” will be deleted. This can't be undone."
 }

@@ -22,5 +22,21 @@
   "noListsTitle": "لا توجد قوائم بعد",
   "noListsHint": "أنشئ قائمتك الأولى لتبدأ بإضافة البطاقات.",
   "createList": "إنشاء قائمة",
-  "noCards": "لا توجد بطاقات بعد"
+  "noCards": "لا توجد بطاقات بعد",
+  "cardTitle": "العنوان",
+  "cardTitlePlaceholder": "مثال: تصميم الصفحة الرئيسية",
+  "cardDescription": "الوصف",
+  "priority": "الأولوية",
+  "dueDate": "تاريخ الاستحقاق",
+  "dueDatePast": "لا يمكن أن يكون تاريخ الاستحقاق في الماضي",
+  "addCardDescription": "أدخل تفاصيل البطاقة الجديدة.",
+  "edit": "تعديل",
+  "cardDetails": "تفاصيل البطاقة",
+  "status": "الحالة",
+  "statusCompleted": "مكتملة",
+  "statusOpen": "مفتوحة",
+  "noDueDate": "بدون تاريخ استحقاق",
+  "noDescription": "لا يوجد وصف",
+  "deleteCardTitle": "حذف هذه البطاقة؟",
+  "deleteCardMessage": "سيتم حذف «{{title}}». لا يمكن التراجع عن هذا."
 }

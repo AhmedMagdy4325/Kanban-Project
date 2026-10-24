@@ -6,19 +6,25 @@ import AppButton from "../ui/AppButton";
 import { Circle, CircleCheck } from "lucide-react";
 import { toggleComplete } from "../../store/cardsSlice";
 import { useAppDispatch } from "../../store/hooks";
-
+import { useSearchParams } from "react-router-dom";
 type CardItemProps = {
   card: CardType;
-  onToggleComplete?: (id: string) => void;
 };
 
 export default function CardItem({ card }: CardItemProps) {
   const { t, i18n } = useTranslation("board");
   const dispatch = useAppDispatch();
-
+  const [, setSearchParams] = useSearchParams();
+  function openCard() {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.set("card", card.id);
+      return next;
+    });
+  }
   return (
-    <div className="bg-surface border border-border rounded-xl p-3 flex flex-col gap-2">
-      <div className="flex gap-2 items-center" dir="auto">
+    <div className=" relative bg-surface border border-border rounded-xl p-3 flex flex-col gap-2">
+      <div className="flex gap-2 items-center">
         <AppButton
           variant="ghost"
           size="xs"
@@ -26,7 +32,10 @@ export default function CardItem({ card }: CardItemProps) {
           role="checkbox"
           aria-checked={card.completed}
           aria-label={t(card.completed ? "markIncomplete" : "markComplete")}
-          className={card.completed ? "text-accent" : "text-foreground-muted"}
+          className={[
+            "relative z-10",
+            card.completed ? "text-accent" : "text-foreground-muted",
+          ].join(" ")}
         >
           {card.completed ? (
             <CircleCheck size={20} aria-hidden />
@@ -34,14 +43,18 @@ export default function CardItem({ card }: CardItemProps) {
             <Circle size={20} aria-hidden />
           )}
         </AppButton>
-        <h3
-          className={[
-            "text-sm font-medium wrap-break-word",
-            card.completed ? "line-through text-foreground-muted" : "",
-          ].join(" ")}
-          dir="auto"
-        >
-          {card.title}
+        <h3 className="min-w-0 text-sm font-medium">
+          <button
+            type="button"
+            dir="auto"
+            onClick={openCard}
+            className={[
+              "text-start wrap-break-word after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-accent",
+              card.completed ? "line-through text-foreground-muted" : "",
+            ].join(" ")}
+          >
+            {card.title}
+          </button>
         </h3>
       </div>
 

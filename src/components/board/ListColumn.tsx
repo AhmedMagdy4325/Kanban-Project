@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import RenameListDialog from "./RenameListDialog";
 import DeleteListDialog from "./DeleteListDialog";
+import AddCardDialog from "./AddCardDialog";
 
 type ListColumnProps = {
   cards: CardType[];
@@ -22,7 +23,8 @@ type ListColumnProps = {
 export default function ListColumn({ cards, list }: ListColumnProps) {
   const [renameOpen, setRenameOpen] = useState<boolean>(false);
   const [deleteOpen, setDeleteOpen] = useState<boolean>(false);
-  const { i18n, t } = useTranslation("board");
+  const [addCardOpen, setAddCardOpen] = useState(false);
+  const { i18n, t } = useTranslation(["board", "common"]);
   const dir = i18n.dir();
 
   return (
@@ -42,19 +44,23 @@ export default function ListColumn({ cards, list }: ListColumnProps) {
         <div>
           <DropdownMenu dir={dir}>
             <DropdownMenuTrigger asChild>
-              <Button size="icon" variant="ghost" aria-label={t("moreOptions")}>
+              <Button
+                size="icon"
+                variant="ghost"
+                aria-label={t("board:moreOptions")}
+              >
                 <MoreHorizontal aria-hidden />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onSelect={() => setRenameOpen(true)}>
-                {t("rename")}
+                {t("board:rename")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="text-danger focus:text-danger"
                 onSelect={() => setDeleteOpen(true)}
               >
-                {t("delete")}
+                {t("board:delete")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -63,7 +69,7 @@ export default function ListColumn({ cards, list }: ListColumnProps) {
       <ul className="flex flex-col gap-2 overflow-y-auto overflow-x-hidden min-h-16 max-h-[70vh]">
         {cards.length === 0 && (
           <li className="rounded-xl border border-dashed border-border p-4 text-center text-xs text-foreground-muted">
-            {t("noCards")}
+            {t("board:noCards")}
           </li>
         )}
         {cards.map((card) => (
@@ -72,10 +78,15 @@ export default function ListColumn({ cards, list }: ListColumnProps) {
           </li>
         ))}
       </ul>
-      <AppButton variant="ghost" size="md" className="w-full justify-start">
-        <strong>
-          <Plus size={16} /> {t("addCard")}
-        </strong>
+
+      <AppButton
+        variant="ghost"
+        size="md"
+        className="w-full justify-start"
+        onClick={() => setAddCardOpen(true)}
+      >
+        <Plus size={16} aria-hidden />
+        {t("addCard")}
       </AppButton>
       <RenameListDialog
         list={list}
@@ -87,6 +98,11 @@ export default function ListColumn({ cards, list }: ListColumnProps) {
         cardCount={cards.length}
         open={deleteOpen}
         onOpenChange={setDeleteOpen}
+      />
+      <AddCardDialog
+        listId={list.id}
+        open={addCardOpen}
+        onOpenChange={setAddCardOpen}
       />
     </div>
   );

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import ListColumn from "../components/board/ListColumn";
+import { useSearchParams } from "react-router-dom";
 
 import { useAppSelector } from "../store/hooks";
 import { useMemo } from "react";
@@ -10,13 +11,15 @@ import AddListDialog from "@/components/board/AddListDialog";
 import NotFoundState from "@/components/NotFoundState";
 import AppButton from "@/components/ui/AppButton";
 import { Plus } from "lucide-react";
+import CardDrawer from "@/components/board/CardDrawer";
 export default function Board() {
   const { id } = useParams();
   const { t } = useTranslation("board");
   const projects = useAppSelector((s) => s.projects);
   const lists = useAppSelector((s) => s.lists);
   const cards = useAppSelector((s) => s.cards);
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const openCardId = searchParams.get("card");
   const cardsByList = useMemo(() => {
     const groups: Record<string, Card[]> = {};
     for (const c of [...cards].sort((a, b) => a.order - b.order)) {
@@ -39,6 +42,23 @@ export default function Board() {
   const projectLists = lists
     .filter((l) => l.projectId === id)
     .sort((a, b) => a.order - b.order);
+
+  const openCard = cards.find((c) => c.id === openCardId);
+  const drawerCard =
+    openCard && projectLists.some((l) => l.id === openCard.listId)
+      ? openCard
+      : undefined;
+
+  function closeDrawer() {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        next.delete("card");
+        return next;
+      },
+      { replace: true },
+    );
+  }
 
   return (
     <div className="flex flex-col gap-5 p-4 md:p-6">
@@ -81,6 +101,7 @@ export default function Board() {
           <AddListDialog projectId={project.id} />
         </div>
       )}
+      <CardDrawer card={drawerCard} onClose={closeDrawer} />
     </div>
   );
 }

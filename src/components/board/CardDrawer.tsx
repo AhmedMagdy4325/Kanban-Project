@@ -15,8 +15,8 @@ import CardForm, { type CardFormValues } from "./CardForm";
 import DeleteCardDialog from "./DeleteCardDialog";
 import { useAppDispatch } from "@/store/hooks";
 import { editCard, toggleComplete } from "@/store/cardsSlice";
-import { formatDueDate } from "@/utils/formatDate";
 import type { Card as CardType } from "@/types";
+import DueDate from "./DueDate";
 
 type DrawerProps = { card: CardType | undefined; onClose: () => void };
 
@@ -46,7 +46,7 @@ function DrawerContent({
   card: CardType;
   onClose: () => void;
 }) {
-  const { t, i18n } = useTranslation(["board", "common"]);
+  const { t } = useTranslation(["board", "common"]);
   const dispatch = useAppDispatch();
   const [editing, setEditing] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
@@ -119,9 +119,11 @@ function DrawerContent({
 
           <dt className="text-foreground-muted">{t("dueDate")}</dt>
           <dd className="font-medium">
-            {card.dueDate
-              ? formatDueDate(card.dueDate, i18n.resolvedLanguage ?? "en")
-              : t("noDueDate")}
+            {card.dueDate ? (
+              <DueDate dueDate={card.dueDate} completed={card.completed} />
+            ) : (
+              t("noDueDate")
+            )}
           </dd>
         </dl>
 

@@ -38,5 +38,7 @@
   "noDueDate": "بدون تاريخ استحقاق",
   "noDescription": "لا يوجد وصف",
   "deleteCardTitle": "حذف هذه البطاقة؟",
-  "deleteCardMessage": "سيتم حذف «{{title}}». لا يمكن التراجع عن هذا."
+  "deleteCardMessage": "سيتم حذف «{{title}}». لا يمكن التراجع عن هذا.",
+  "overdue": "متأخرة",
+  "dueSoon": "تستحق قريبًا"
 }

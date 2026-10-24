@@ -25,6 +25,7 @@
   --overlay: rgba(0, 0, 0, 0.4);
   --danger: #dc2626;
   --danger-soft: #fee2e2;
+  --warning: #a16207;
 
   --priority-high-bg: #fee2e2;
   --priority-high-text: #b91c1c;
@@ -67,6 +68,7 @@
   --overlay: rgba(0, 0, 0, 0.6);
   --danger: #f87171;
   --danger-soft: #3a1d1f;
+  --warning: #facc15;
 
   --priority-high-bg: #3b1e22;
   --priority-high-text: #fca5a5;
@@ -96,6 +98,8 @@
   --color-overlay: var(--overlay);
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
+
+  --color-warning: var(--warning);
 
   --color-priority-high-bg: var(--priority-high-bg);
   --color-priority-high-text: var(--priority-high-text);

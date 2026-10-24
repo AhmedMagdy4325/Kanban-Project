@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import { useAppDispatch } from "@/store/hooks";
 import { renameList } from "@/store/listsSlice";
+import { Input } from "../ui/input";
 
 type RenameListDialogProps = {
   list: ListType;
@@ -59,7 +60,7 @@ function RenameListForm({
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-5">
-        <input
+        <Input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}

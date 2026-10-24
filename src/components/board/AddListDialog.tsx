@@ -13,6 +13,7 @@ import { useState, type ReactNode } from "react";
 import AppButton from "../ui/AppButton";
 import { Plus } from "lucide-react";
 import { addList } from "@/store/listsSlice";
+import { Input } from "../ui/input";
 
 interface AddListDialogProps {
   projectId: string;
@@ -69,7 +70,7 @@ export default function AddListDialog({
         </DialogHeader>
         <form onSubmit={handleSubmit}>
           <div className="mb-5">
-            <input
+            <Input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}

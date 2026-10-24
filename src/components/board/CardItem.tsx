@@ -1,18 +1,19 @@
 import type { Card as CardType } from "../../types";
 import { useTranslation } from "react-i18next";
-import { formatDueDate } from "../../utils/formatDate";
+
 import PriorityBadge from "./PriorityBadge";
 import AppButton from "../ui/AppButton";
 import { Circle, CircleCheck } from "lucide-react";
 import { toggleComplete } from "../../store/cardsSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { useSearchParams } from "react-router-dom";
+import DueDate from "./DueDate";
 type CardItemProps = {
   card: CardType;
 };
 
 export default function CardItem({ card }: CardItemProps) {
-  const { t, i18n } = useTranslation("board");
+  const { t } = useTranslation("board");
   const dispatch = useAppDispatch();
   const [, setSearchParams] = useSearchParams();
   function openCard() {
@@ -60,9 +61,7 @@ export default function CardItem({ card }: CardItemProps) {
 
       <div className="flex items-center gap-2">
         {card.dueDate && (
-          <span className="text-xs text-foreground-muted">
-            {formatDueDate(card.dueDate, i18n.resolvedLanguage ?? "en")}
-          </span>
+          <DueDate dueDate={card.dueDate} completed={card.completed} />
         )}
 
         <PriorityBadge priority={card.priority} />
